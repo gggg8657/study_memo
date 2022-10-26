@@ -1,0 +1,60 @@
+Hidden markov Model
+
+observation vs latent variable 
+observation : 관측 할 수 있는 데이터, 센서로 확인을 하는것이 조금 더 클리어 하다.
+            카메라로 측정을 한다. 가 옵저베이션
+            latent variable 은 그럼 대상이 사람일 경우에 사람을 관측ㅇㄹ 하는데, 대상에 대한 abstractive 한 정보이다. 
+
+            사람을 observe 하고 있다. 라고 하면, 그 사람에 대한 observation 이고 latent var 가 , 일을한다. 운동을 한다. 라는 것. 
+
+            산불을 감지하는것에서 latent variable 불이 났다 안났다.
+            observation : 온도, 습도
+
+            쉽게 : observation - 센서로 측정되는 값
+                : latent var  - 간접적으로 알 수 있는것 ( hidden variable 이라고도 함. )
+
+            state 가 st 라는 state 가 과거의 모든 state 에 영향을 미칠 수 가 있을텐데, 
+
+            마르코프 모델의 정의는 : 과거의 모든 상태의 영향을 받아서, 현재의 상태가 결정이 될 수 있을텐데, 
+                             : 오래된것은 필요없고 바로 전 것만 영향을 받는다.
+                             너무 멀리 가면 너무 복잡하니까, simplify 해서 바로 전 것만 고려해서 생각을 하자. 라는것이 마코프 모델의 정의이다.
+                             아래로 가는 화살표의 의미 :: P (Y|X)
+                             HMM - bayesian 을 알아야 하는데, P(X|Y)
+
+                             posterior{P(X|Y)} = prior{P(X)} likelihood{P(Y|X)} / P(Y)
+                                            P(Xn | Xn-1) : prior P(Y|X) : likelihood
+
+
+P(X) . P(Y|X) 를 모두 구할 수 있었을 때,
+
+데이터를 응용한 히스토그램 작성 - 천일중에 600 일이 200 럭스이면, 확률임 노가다. 
+
+히스토그램을 이용한 것을 논파라미트릭 방법 : 파라미터 없이 확률값을 계산하는것, 파라미트릭 방법에는 어떻게 구할까요? : 얘를 일단 가정을 해야죠, 어떤 분포를 따르는 인지 , 하고, 
+평균 분산을 알고, 천일동안 데이터 숫자가 있어, 확률 분산만 구하고, 확률 분산을 가지고, 얘가 이러한 분포를 따르겠구나 하는것이고, 200 럭스에 따르는 부분을 찾아서 확률을 구하는것
+
+P(X) . P(Y|X) = P(X) joint probability
+
+sum P(X,Y) = P(Y)
+
+P(X|Y) why is it important ? -> P(X|Y) observable variable을 관측하여, hidden 을 예측 할 수 있기 때문에, 
+
+why initial state probability ? - 제일 첫 시점은 정해줘야 하기 때문에, 쓴다. 수면 측정에서 : 처음에 누웠을때 100 프로 깨어있으니까, 그 확률을 정해주느것이 이니셜 스테이트 프라버빌리티. 이다.
+
+bayesian : 
+
+        P(theta | X ) = P(X|theta)P(theta)/ P(X)
+        
+MAP : prior probability 가 높은 것을 사용을 하면, 다른 상황에 다른 데이터를 선택을 할 수 가 없어진다. 그래서 확률적으로 계산을 했을때, 0.22 라는 확률을 가져와서, prior probability 에서 likelihood 나 posterior probability 를 고려해야함
+
+likelihood : 가능도? 
+
+likelihood 사용해서, 음식을 선택을 하려 하면, 옆에 있는, 정보를 가지고 food1 을 선택을 하는게 아니라 , food1 을 기준으로 먹었을때, 이러한 환경이었다. 라는 기준과
+
+오늘 주변의 환경이 흐리고, 날씨가 안좋아서 이걸 먹어야 겠다 라는 기준이 다르기 때문에, food1 을 선택했을때 주변 환경과, 주변 환경으로 인해 food1 이다. 랑은 다르다.
+
+목표가 food1 이냐, food2 냐 를 계산하는게 목표인데, 지금 애는 데피니션 자체가, 푸드에 대한 확률이 아니라, 옵서베이션에 대한 확률을 구한거다 보니, observation 에 대한 food 의 확률을 찾고자 한다.
+
+food -> observation 이 아니라 observation -> food (posterior ) 를 우리가 구하고자 하는거다.
+
+posterior 정보는 A 변수와 B 변수에 대한 조건에 대한 확률값을 계산을 할 때, joint probability 를 많이 계산함. 
+
