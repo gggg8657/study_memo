@@ -58,3 +58,15 @@ food -> observation 이 아니라 observation -> food (posterior ) 를 우리가
 
 posterior 정보는 A 변수와 B 변수에 대한 조건에 대한 확률값을 계산을 할 때, joint probability 를 많이 계산함. 
 
+HMM - Y 일 때, 일어날 수 있는 어떤 확률 X 가 latent variable 이라고 Y 는 observation 
+
+superscript 는 1 부터 i 까지 이고, subscript 는 i 일 때, 이다.
+
+prior probability 만 가지고, 확률을 구하기에는, 처음 눕기 시작한 시점부터, 현재 한시간 뒤에 수면 상태를 예측을 하자. 
+
+어떻게 찾을까 를 derivation 한 결과,
+
+조건부 확률에 의해 넘어감, joint probability 곱해지면 바뀐다.
+
+sigma a~inifiniteP(a,b) = P(b|a)
+
