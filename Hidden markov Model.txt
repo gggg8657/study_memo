@@ -70,3 +70,4 @@ prior probability 만 가지고, 확률을 구하기에는, 처음 눕기 시작
 
 sigma a~inifiniteP(a,b) = P(b|a)
 
+sss
